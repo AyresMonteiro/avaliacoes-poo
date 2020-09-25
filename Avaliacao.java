@@ -13,8 +13,25 @@
 // respectivas notas e nomes. Em seguida, para cada aluno, imprima a media, a
 // maior e menor nota e se ele está aprovado, juntamente com seu nome.
 
+import java.util.Scanner;
 
 class Aluno {
   String nome;
   float[] notas;
+
+  public Aluno(){
+    Scanner leitor = new Scanner(System.in);
+
+    System.out.println("Insira o nome do aluno:");
+    this.nome = leitor.next();
+
+    this.notas = new float[4];
+
+    for(int i = 0; i < 4; i++) {
+      do {
+      System.out.println("Insira a " + (i+1) + "a nota:");
+      this.notas[i] = leitor.nextFloat();
+      } while(this.notas[i] < 0 || this.notas[i] > 100);
+    }
+  }
 }
