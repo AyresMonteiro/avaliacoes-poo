@@ -68,3 +68,14 @@ class Aluno {
     System.out.println("Esta aprovado? " + (this.estaAprovado() ? "Sim" : "Nao"));
   }
 }
+
+class Avaliacao {
+  public static void main(String[] args){
+    Aluno[] alunos = new Aluno[3];
+    for(int i = 0; i < 3; i++)
+      alunos[i] = new Aluno();
+
+    for(int i = 0; i < 3; i++)
+      alunos[i].mostrarInformacoes();
+  }
+}
