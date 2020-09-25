@@ -45,4 +45,11 @@ class Aluno {
       if(this.notas[i] > maiorNota) maiorNota = this.notas[i];
     return maiorNota;
   }
+
+  public float menor() {
+    float menorNota = this.notas[0];
+    for(int i = 1; i < 4; i++)
+      if(this.notas[i] < menorNota) menorNota = this.notas[i];
+    return menorNota;
+  }
 }
