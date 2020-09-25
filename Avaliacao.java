@@ -38,4 +38,11 @@ class Aluno {
   public float media() {
     return (this.notas[0] + this.notas[1] + this.notas[2] + this.notas[3])/4;
   }
+
+  public float maior() {
+    float maiorNota = this.notas[0];
+    for(int i = 1; i < 4; i++)
+      if(this.notas[i] > maiorNota) maiorNota = this.notas[i];
+    return maiorNota;
+  }
 }
