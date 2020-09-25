@@ -34,4 +34,8 @@ class Aluno {
       } while(this.notas[i] < 0 || this.notas[i] > 100);
     }
   }
+
+  public float media() {
+    return (this.notas[0] + this.notas[1] + this.notas[2] + this.notas[3])/4;
+  }
 }
