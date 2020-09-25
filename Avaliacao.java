@@ -56,4 +56,15 @@ class Aluno {
   public boolean estaAprovado(){
     return this.media() >= 60;
   }
+
+  public void mostrarInformacoes(){
+    System.out.println("Nome: " + this.nome);
+    System.out.print("Notas: " + this.notas[0]);
+    for(int i = 1; i < 4; i++)
+      System.out.print(", " + this.notas[i]);
+    System.out.println("\nMaior nota: " + this.maior());
+    System.out.println("Menor nota: " + this.menor());
+    System.out.println("Media: " + this.media());
+    System.out.println("Esta aprovado? " + (this.estaAprovado() ? "Sim" : "Nao"));
+  }
 }
