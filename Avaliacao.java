@@ -52,4 +52,8 @@ class Aluno {
       if(this.notas[i] < menorNota) menorNota = this.notas[i];
     return menorNota;
   }
+
+  public boolean estaAprovado(){
+    return this.media() >= 60;
+  }
 }
