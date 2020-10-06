@@ -29,8 +29,8 @@ class Aluno {
 
     for(int i = 0; i < 4; i++) {
       do {
-      System.out.println("Insira a " + (i+1) + "a nota:");
-      this.notas[i] = leitor.nextFloat();
+        System.out.println("Insira a " + (i+1) + "a nota:");
+        this.notas[i] = leitor.nextFloat();
       } while(this.notas[i] < 0 || this.notas[i] > 100);
     }
   }
