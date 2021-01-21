@@ -24,10 +24,9 @@ Professor porque eles são Pessoas.
 A classe Colecao implementa duas interfaces sendo elas: **Interface1** e
 **Interface2.**
 
-	* A Interface1 possui os seguintes métodos: {**adicionar**, **listar** e
-	**remover**};
-	* A Interface2 possui os seguintes métodos: {**somaIdade** e
-	**mediaIdade**}.
+	* A Interface1 possui os seguintes métodos: {adicionar, listar e
+	remover};
+	* A Interface2 possui os seguintes métodos: {somaIdade e mediaIdade}.
 
 As especificações dos métodos das interfaces são como segue:
 
