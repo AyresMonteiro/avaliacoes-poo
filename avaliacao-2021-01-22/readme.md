@@ -23,19 +23,21 @@ Professor porque eles são Pessoas.
 
 A classe Colecao implementa duas interfaces sendo elas: **Interface1** e
 **Interface2.**
+
 	* A Interface1 possui os seguintes métodos: {**adicionar**, **listar** e
 	**remover**};
 	* A Interface2 possui os seguintes métodos: {**somaIdade** e
 	**mediaIdade**}.
 
 As especificações dos métodos das interfaces são como segue:
+
 	* adicionar: recebe uma Pessoa como parâmetro e a adiciona no ArrayList.
 	* listar: não possui parâmetros e deve apresentar para todos os objetos
 	do ArrayList suas informações, tanto as herdadas da classe pessoa como
 	as suas específicas (use toString)
 	* remover:
-		- remove a última pessoa do array list ou
-		- recebe um índice como parâmetro e remove a Pessoa daquele
+		* remove a última pessoa do array list ou
+		* recebe um índice como parâmetro e remove a Pessoa daquele
 		índice no ArrayList.
 	* somaidade: não possui parâmetros e deve retornar um inteiro com a soma
 	de todas as idades das pessoas do ArrayList.
