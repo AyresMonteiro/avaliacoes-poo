@@ -42,7 +42,8 @@ public class Principal {
 		colecao.remover();
 		colecao.listar();
 		System.out.println("---");
-		System.out.println("A soma das idades é: " + colecao.somaIdade());
+		System.out.println("A soma das idades é: " +
+				colecao.somaIdade());
 		System.out.println("A média das idades é: " +
 				colecao.mediaIdade());
 	}
