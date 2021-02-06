@@ -1,5 +1,8 @@
 package atividade;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class ContaBancaria {
   private double limite;
   private String proprietario;
@@ -11,27 +14,49 @@ public class ContaBancaria {
     this.saldo = saldo;
   }
 
-  public void depositar(double valor) throws ValorNegativoException {
-    if(valor < 0) {
-      throw new ValorNegativoException(this.proprietario, valor);
-    }
+  public void depositar(Scanner leitor) throws ValorNegativoException {
+    double valor = 0.0;
 
-    this.saldo += valor;
+    try {
+      System.out.println("Insira o valor que deseja depositar:");
+      valor = leitor.nextDouble();
+    } catch (InputMismatchException e) {
+      System.out.println("\n" + "-=".repeat(20) + "-\n");
+      System.out.println("Você digitou alguma coisa que não é um número!");
+      valor = 0;
+    } finally {
+      if (valor < 0) {
+        throw new ValorNegativoException(this.proprietario, valor);
+      }
+
+      this.saldo += valor;
+    }
   }
 
-  public void sacar(double valor) throws ValorNegativoException, EstouroDeLimiteException {
-    if(valor < 0) {
-      throw new ValorNegativoException(this.proprietario, valor);
-    }
+  public void sacar(Scanner leitor) throws ValorNegativoException, EstouroDeLimiteException {
+    double valor = 0.0;
 
-    if(valor > this.limite) {
-      throw new EstouroDeLimiteException(this.proprietario, valor, this.limite);
-    }
+    try {
+      System.out.println("Insira o valor que deseja sacar:");
+      valor = leitor.nextDouble();
+    } catch (InputMismatchException e) {
+      System.out.println("\n" + "-=".repeat(20) + "-\n");
+      System.out.println("Você digitou alguma coisa que não é um número!");
+      valor = 0;
+    } finally {
+      if (valor < 0) {
+        throw new ValorNegativoException(this.proprietario, valor);
+      }
 
-    this.saldo -= valor;
+      if (valor > this.limite) {
+        throw new EstouroDeLimiteException(this.proprietario, valor, this.limite);
+      }
+
+      this.saldo -= valor;
+    }
   }
 
-  public double saldoAtual() {
-    return this.saldo;
+  public void saldoAtual() {
+    System.out.println("Seu saldo é: R$" + Real.formatar(this.saldo));
   }
 }

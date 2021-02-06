@@ -7,6 +7,8 @@ public class MainActivity {
   public static void main(String[] args) {
     Scanner leitor = new Scanner(System.in);
 
+    int opcao = 5;
+
     try {
       System.out.println("Digite o nome do proprietario da conta:");
       String nome = leitor.next();
@@ -17,9 +19,8 @@ public class MainActivity {
 
       ContaBancaria usuario = new ContaBancaria(limite, nome, saldo);
 
-      int opcao = 5;
-
-      while (opcao > 0){
+      while (opcao > 0) {
+        Thread.sleep(1000);
         System.out.println("\n" + "-=".repeat(20) + "-\n");
         System.out.println("Escolha uma opção:");
         System.out.println("1 - Sacar");
@@ -27,47 +28,43 @@ public class MainActivity {
         System.out.println("3 - Ver saldo\n");
         System.out.println("0 - Sair");
 
-        opcao = leitor.nextInt();
+        if(leitor.hasNextInt()) {
+          opcao = leitor.nextInt();
+        } else {
+          leitor.next();
+          opcao = 5;
+        }
 
-        switch(opcao) {
+        switch (opcao) {
           case 0:
             break;
           case 1:
-            System.out.println("Insira o valor que deseja sacar:");
-            double valorSaque = leitor.nextDouble();
-            usuario.sacar(valorSaque);
+            usuario.sacar(leitor);
             break;
           case 2:
-            System.out.println("Insira o valor que deseja depositar:");
-            double valorDeposito = leitor.nextDouble();
-            usuario.depositar(valorDeposito);
+            usuario.depositar(leitor);
             break;
           case 3:
-            System.out.println(
-              "Seu saldo é: R$" + Real.formatar(usuario.saldoAtual())
-            );
+            usuario.saldoAtual();
             break;
           default:
             System.out.println("Selecione uma opção válida!");
         }
-
-        
       }
     } catch(InputMismatchException e) {
       System.out.println("\n" + "-=".repeat(20) + "-\n");
       System.out.println("Você digitou alguma coisa que não é um número!");
-      System.out.println("Finalizando programa...");
     } catch (ValorNegativoException e) {
       System.out.println("\n" + "-=".repeat(20) + "-\n");
       System.out.println(e.getMessage());
-      System.out.println("Finalizando programa...");
     } catch (EstouroDeLimiteException e) {
       System.out.println("\n" + "-=".repeat(20) + "-\n");
       System.out.println(e.getMessage());
-      System.out.println("Finalizando programa...");
+    } catch (InterruptedException e) {
+      System.out.println("Erro de Thread.");
     } finally {
       leitor.close();
+      System.out.println("Finalizando programa...");
     }
   }
 }
-
