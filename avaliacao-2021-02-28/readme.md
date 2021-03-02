@@ -7,6 +7,7 @@ Marque como executáveis os arquivos
 - compile.sh
 - run.sh
 - build.sh
+
 e use o seguinte comando dentro da pasta "avaliacao-2021-02-28":
 > `./build.sh`
 
